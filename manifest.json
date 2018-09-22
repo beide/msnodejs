@@ -1,8 +1,8 @@
 {
   "runtime":{
-    "majorVersion":"4"
+    "majorVersion":"8"
   },
   "command": "node Main.js",
   "release": {},
-  "notes": ""
+  "notes": "Oracle Application Dev Day!"
 }
