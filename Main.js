@@ -1,18 +1,12 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var app = express();
-app.use(bodyParser.urlencoded());
-app.use(bodyParser.json());
-var router = express.Router();
-
-router.get('/',function(req,res){
-  res.json({"error" : false, "message" : "Hello!"});
+var http = require('http');
+// Read Environment Parameters
+var port = Number(process.env.PORT || 8080);
+var greeting = process.env.GREETING || 'Hello World! Atlanta';
+var server = http.createServer(function (request, response) {
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.end(greeting + "\n");
 });
-
-router.post('/add',function(req,res){
-  res.json({"error" : false, "message" : "success", "data" : req.body.num1 + req.body.num2});
-});
-
+server.listen(port);
 app.use('/',router);
 
 app.listen(process.env.PORT || 3000,function(){
